@@ -1,6 +1,7 @@
 """Build the BB10 Call Recorder native BAR using the pinned BB10 toolchain container."""
 import argparse
 import json
+import os
 from pathlib import Path
 import re
 import shutil
@@ -36,6 +37,16 @@ def build_bar(version=PROJECT['mobile_version']):
     stage_runtime_assets()
     source = ROOT / 'mobile/native'
     (source / 'build').mkdir(parents=True, exist_ok=True)
+    descriptor = (source / 'bar-descriptor.xml').read_text(encoding='utf-8')
+    descriptor = re.sub(r'<versionNumber>[^<]+</versionNumber>',
+                        '<versionNumber>' + '.'.join(version.split('.')[:3]) + '</versionNumber>', descriptor)
+    descriptor = re.sub(r'<buildId>[^<]+</buildId>',
+                        '<buildId>' + version.split('.')[3] + '</buildId>', descriptor)
+    ET.fromstring(descriptor)
+    (source / 'bar-descriptor.build.xml').write_text(descriptor, encoding='utf-8', newline='\n')
+    if os.name != 'nt':
+        subprocess.run(['chmod', '-R', 'a+rwX', str(source)], check=True)
+
     cmd = [
         'docker', 'run', '--rm', '--network', 'none', '--cap-drop', 'ALL',
         '--security-opt', 'no-new-privileges',
@@ -47,14 +58,6 @@ def build_bar(version=PROJECT['mobile_version']):
         '-DBB10_RECORDER_VERSION=' + version,
     ], check=True)
     subprocess.run(cmd + ['cmake', '--build', '/src/build/cmake', '--parallel', '2'], check=True)
-
-    descriptor = (source / 'bar-descriptor.xml').read_text(encoding='utf-8')
-    descriptor = re.sub(r'<versionNumber>[^<]+</versionNumber>',
-                        '<versionNumber>' + '.'.join(version.split('.')[:3]) + '</versionNumber>', descriptor)
-    descriptor = re.sub(r'<buildId>[^<]+</buildId>',
-                        '<buildId>' + version.split('.')[3] + '</buildId>', descriptor)
-    ET.fromstring(descriptor)
-    (source / 'bar-descriptor.build.xml').write_text(descriptor, encoding='utf-8', newline='\n')
     subprocess.run(cmd + [
         'blackberry-nativepackager', '-devMode', '-package',
         'build/com.octolab.bb10recorder.bar', 'bar-descriptor.build.xml',
