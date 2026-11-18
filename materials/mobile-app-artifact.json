@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "version": "0.1.0.1",
+  "identity": {
+    "Package-Name": "com.octolab.bb10recorder",
+    "Package-Id": "testDev_b10recorder746d27a_",
+    "Package-Author-Id": "gYAOctoLabBB10VoLTE20261102",
+    "Package-Architecture": "armle-v7",
+    "Package-Version": "0.1.0.1",
+    "Application-Id": "testDev_b10recorder746d27a_",
+    "Application-Version": "0.1.0.1"
+  },
+  "filename": "bb10-call-recorder.bar",
+  "bar_sha256": "0e5afcd2b7004f339e1998e5ba443037decd01df46edee43209b06b6777234b7",
+  "bar_size": 303838,
+  "platform_manifest_sha256": "c25daf3216650e694d5f11c7b2738465826d467d1d0320514026447ee78c5515",
+  "installed_files": {
+    "META-INF/MANIFEST.MF": {
+      "sha256": "c25daf3216650e694d5f11c7b2738465826d467d1d0320514026447ee78c5515",
+      "size": 5383
+    },
+    "native/bar-descriptor.build.xml": {
+      "sha256": "1229c072c03fde51e70e6f7b0e07fee7a9ce3b4b937f67c20e6fea26d23e60fd",
+      "size": 1044
+    },
+    "native/assets/SettingsPage.qml": {
+      "sha256": "82591075d6fa584cef16af16eb1e82a1e26e8ee57d93b7266cdf5bdaca283af6",
+      "size": 3649
+    },
+    "native/assets/RecordingsPage.qml": {
+      "sha256": "1c2cfc82bedae61191341d725cdea8abb498e46ddd53eef91505974eeb657e0e",
+      "size": 3299
+    },
+    "native/assets/support/wechat-29_90.png": {
+      "sha256": "5f046b252fe010a353da11eef459a57f4c08edb63cfbb400421132a050ad9c00",
+      "size": 24995
+    },
+    "native/assets/support/wechat-custom.png": {
+      "sha256": "188ff09a1e98a2bf474bb31e870330791fb14b07d57f6200c51eed8471d65da5",
+      "size": 22477
+    },
+    "native/assets/support/alipay-19_90.png": {
+      "sha256": "ac61ce94f79108b084d44b6c942c9973b8ce2554414d4cf6df3cf7777ec213bb",
+      "size": 12998
+    },
+    "native/assets/support/alipay-29_90.png": {
+      "sha256": "7530233f4e4d4f3adda502cb24b0048451d2b7ea1cb24a749a944bb5b59d9144",
+      "size": 13864
+    },
+    "native/assets/support/wechat-9_90.png": {
+      "sha256": "67819039f9cc1325a47ed431836227455018eea15f5cf4fbd2f8eaa44f52ae11",
+      "size": 24779
+    },
+    "native/assets/support/octoooo-favicon.png": {
+      "sha256": "9b1394343a3e25e3f320e96a8500ad395e833c55b3038b9f1a5876d54ce874bc",
+      "size": 8848
+    },
+    "native/assets/support/wechat-19_90.png": {
+      "sha256": "68f4197be901c6034a2332326a2ee6a440d2e51ebf062d7724c32de68e3515eb",
+      "size": 25283
+    },
+    "native/assets/support/alipay-9_90.png": {
+      "sha256": "4f0b184265ea538ebee60d86cb417ef8c694cebdebebace502eda39be80a7c67",
+      "size": 13829
+    },
+    "native/assets/support/alipay-custom.png": {
+      "sha256": "793ffd07efc7b5a92e97500e04200adf657b2e0c42a911a81f1b48f55e300bfc",
+      "size": 14002
+    },
+    "native/assets/main.qml": {
+      "sha256": "f5b66bd4c0e7a13256fe6ae5a821546f69ab30944fe1977e7ded47d5b2cba328",
+      "size": 6031
+    },
+    "native/assets/icon.png": {
+      "sha256": "d0773cffdc0e92c47ba881c82e72671a725f8f2d2f0b8ed6a074bf4fdba45bae",
+      "size": 9137
+    },
+    "native/assets/runtime/device/install.py": {
+      "sha256": "ace23950ddb52c27f98c1f47d841cfcf7a8af72494723e98b77467eb6918186e",
+      "size": 5155
+    },
+    "native/assets/runtime/device/boot.sh": {
+      "sha256": "944f62684914c9d12339304325d242184bcf914c804eec78c310141a135abd94",
+      "size": 756
+    },
+    "native/assets/runtime/device/native_io.py": {
+      "sha256": "0b302b6c9a385dfa54966ddc4747b0721b909ee7ba4910af13d4e46cb8f596b0",
+      "size": 4372
+    },
+    "native/assets/runtime/device/wav_writer.py": {
+      "sha256": "3cb86b94e0d06ded51d7fc283852c129684a629785854cad0b13a82121ddd4a4",
+      "size": 3918
+    },
+    "native/assets/runtime/device/service.py": {
+      "sha256": "3716a08269735e9ba728098aef2634d94abeeab735dc36ff1e2d7ed5a7cf8c35",
+      "size": 17484
+    },
+    "native/assets/runtime/device/pcm_mixer.py": {
+      "sha256": "443afc5ac201ef81a9b9dbabbbd915622c31e68afc866d13b11a66ecee156a75",
+      "size": 4772
+    },
+    "native/assets/runtime/device/pps_calls.py": {
+      "sha256": "42e9279f2b93259944a721a15e2c550ecd6c33528d04fa84326eb4f6c8e8ecf2",
+      "size": 5840
+    },
+    "native/assets/runtime/device/qsa_fallback.py": {
+      "sha256": "3adbc14c4afdf0bf7daf23f47722ac49cf96548abcce2f9cb5ce0217b5707864",
+      "size": 8421
+    },
+    "native/assets/runtime/runtime/entry.py": {
+      "sha256": "eaec513cf1de9f8971241076b8765ddf6e8841844571e297d235ddba31ba36ee",
+      "size": 3767
+    },
+    "native/assets/Support.qml": {
+      "sha256": "2ede06d6dbe661249b709fd5338c21e89dc536a7febaaaf567f5de0aa2808fa5",
+      "size": 7816
+    },
+    "native/bb10recorder": {
+      "sha256": "56892e537e29d9dd104fff8d4682a7974c1e3801cbf7fe98284a2c2490e9f397",
+      "size": 308940
+    }
+  },
+  "helper_sha256": "d24aafb4d91617238b3e4c9d9fdcc12d75406adac1fab4553801308e84bddce1",
+  "installer_sha256": "b5b98e0ad73c944810bd4d9135386f9d83b01a630fcbd077d9c2a2de9b65e740"
+}

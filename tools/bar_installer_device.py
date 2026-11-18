@@ -186,7 +186,8 @@ def device_summary(release):
     app = installed(release)
     props = read_pps('/pps/services/deviceproperties') if os.path.lexists('/pps/services/deviceproperties') else ''
     model = re.search(r'^modelnumber::([A-Za-z0-9-]{1,40})$', props, re.M)
-    os_ver = regular('/etc/os.version', 128).strip().decode('ascii', 'replace') if os.path.lexists('/etc/os.version') else 'unknown'
+    os_path = os.path.realpath('/etc/os.version')
+    os_ver = regular(os_path, 128).strip().decode('ascii', 'replace') if os.path.lexists(os_path) else 'unknown'
     app.update(schema=1, variant=model.group(1) if model else 'unknown',
                os_version=os_ver, target_version=release['version'], root_verified=True)
     return app
