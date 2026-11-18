@@ -44,7 +44,7 @@ def make_release_pin(bar_path, output_path=None):
         )
         identity = {k: info[k] for k in identity_keys}
         if (identity['Package-Name'] != PACKAGE_NAME or
-                identity['Package-Author-Id'] != 'gYAOctoLabBB10Rec20261118' or
+                identity['Package-Author-Id'] != 'gYAOctoLabBB10VoLTE20261102' or
                 identity['Application-Id'] != identity['Package-Id'] or
                 identity['Package-Architecture'] != 'armle-v7' or
                 identity['Package-Version'] != identity['Application-Version']):

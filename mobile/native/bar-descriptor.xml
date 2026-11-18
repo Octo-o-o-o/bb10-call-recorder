@@ -6,7 +6,7 @@
     <buildId>1</buildId>
     <description>Offline call recording manager and audio player for rooted BlackBerry 10 phones.</description>
     <author>OctoLab</author>
-    <authorId>gYAOctoLabBB10Rec20261118</authorId>
+    <authorId>gYAOctoLabBB10VoLTE20261102</authorId>
     <icon><image>assets/icon.png</image></icon>
     <initialWindow><autoOrients>false</autoOrients><systemChrome>none</systemChrome></initialWindow>
     <configuration name="Device-Debug">
