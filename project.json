@@ -1,0 +1,11 @@
+{
+  "name": "bb10-call-recorder",
+  "display_name": "BB10 Call Recorder",
+  "package_id": "com.octolab.bb10recorder",
+  "author": "OctoLab",
+  "author_id": "gYAOctoLabBB10Rec20261118",
+  "version": "0.1.0",
+  "desktop_revision": 1,
+  "mobile_version": "0.1.0.1",
+  "license": "PolyForm-Noncommercial-1.0.0"
+}

@@ -1,0 +1,39 @@
+name: Source and release checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Check (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.14'
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: GUI self-test (Linux virtual display)
+        if: runner.os == 'Linux'
+        run: xvfb-run -a python tools/gui.py --self-test
+      - name: GUI self-test (Windows desktop)
+        if: runner.os == 'Windows'
+        run: python tools/gui.py --self-test
+      - name: Bytecode syntax check
+        run: python -m compileall -q device tools tests mobile/runtime
+      - name: Public hygiene and zero-internet permission check
+        run: python tools/check_release.py --check-git
+      - name: Build release archives
+        run: python tools/package_release.py
+      - name: Require clean git working tree
+        run: git diff --exit-code

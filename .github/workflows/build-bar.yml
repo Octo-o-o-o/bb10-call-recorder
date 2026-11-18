@@ -1,0 +1,38 @@
+name: Build BB10 Native BAR
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-bar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.14'
+      - name: Pull pinned BB10 toolchain container
+        run: docker pull ghcr.io/xiazy/blackberry10-toolchain@sha256:60ce49510a37ed92368cca010bbaabf97b12d209b9fab179e8491b266bb2578f
+      - name: Stage runtime scripts and compile ARMv7 Cascades BAR
+        run: |
+          set -euo pipefail
+          python tools/build_mobile.py --stage-only
+          chmod -R a+rwX mobile/native
+          python tools/build_mobile.py
+          sha256sum dist/bb10-call-recorder-*.bar > dist/bb10-call-recorder-bar.sha256
+          cat dist/bb10-call-recorder-bar.sha256
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: bb10-call-recorder-bar
+          path: |
+            dist/bb10-call-recorder-*.bar
+            dist/bb10-call-recorder-bar.sha256
+          retention-days: 30

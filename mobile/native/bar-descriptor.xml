@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<qnx xmlns="http://www.qnx.com/schemas/application/1.0">
+    <id>com.octolab.bb10recorder</id>
+    <name>BB10 通话录音</name>
+    <versionNumber>0.1.0</versionNumber>
+    <buildId>1</buildId>
+    <description>Offline call recording manager and audio player for rooted BlackBerry 10 phones.</description>
+    <author>OctoLab</author>
+    <authorId>gYAOctoLabBB10Rec20261118</authorId>
+    <icon><image>assets/icon.png</image></icon>
+    <initialWindow><autoOrients>false</autoOrients><systemChrome>none</systemChrome></initialWindow>
+    <configuration name="Device-Debug">
+        <platformArchitecture>armle-v7</platformArchitecture>
+        <asset path="build/cmake/arm/o.le-v7-g/bb10recorder" entry="true" type="Qnx/Elf">bb10recorder</asset>
+    </configuration>
+    <asset path="assets">assets</asset>
+    <permission system="true">run_native</permission>
+    <permission>access_shared</permission>
+    <env var="LD_LIBRARY_PATH" value="app/native/lib:/usr/lib/qt4/lib"/>
+</qnx>
